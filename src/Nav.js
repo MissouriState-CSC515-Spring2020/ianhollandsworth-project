@@ -19,13 +19,13 @@ function Nav() {
     <div className="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-            <Link to="/categories" style={navStyle}><a className="nav-link">Pizza</a></Link>
+            <Link to="/pizza" style={navStyle}><a className="nav-link">Pizza</a></Link>
         </li>
         <li className="nav-item">
-            <Link to="/categories" style={navStyle}><a className="nav-link">Cats</a></Link>
+            <Link to="/cats" style={navStyle}><a className="nav-link">Cats</a></Link>
         </li>
         <li className="nav-item">
-            <Link to="/categories" style={navStyle}><a className="nav-link">Video Games</a></Link>
+            <Link to="/videogames" style={navStyle}><a className="nav-link">Video Games</a></Link>
         </li>
       </ul>
       <form className="form-inline my-2 my-lg-0">

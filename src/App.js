@@ -1,12 +1,22 @@
 import React from 'react';
 import './App.css';
 import Nav from './Nav';
-import Categories from './Categories';
-import Details from './Details';
+import PizzaPage from './PizzaPage'
+import CatsPage from './CatsPage'
+import VideoGamesPage from './VideoGamesPage'
+import Youtube from './Youtube';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './starter-template.css';
 import {Link} from 'react-router-dom';
+
+const API = 'AIzaSyCem_BUc48RuTHrqx1KuUf5xkOElRSBYFo'
+const search = 'cats'
+const result = 5;
+
+var finalURL = `https://www.googleapis.com/youtube/v3/search?key=${API}&q=${search}&part=snippet,id&maxResults=${result}`
+
+
 
 function App() {
   return (
@@ -15,8 +25,9 @@ function App() {
          <Nav />
          <Switch>
            <Route path="/" exact component={Home}/>
-           <Route path="/details" component={Details}/>
-           <Route path="/categories" component={Categories}/>
+           <Route path="/pizza" component={PizzaPage}/>
+           <Route path="/cats" component={CatsPage}/>
+           <Route path="/videogames" component={VideoGamesPage}/>
          </Switch>
       </div>
     </Router>
@@ -28,45 +39,16 @@ function App() {
 const Home = () => (
 
   <main role="main" className="container">
-    <title>User's Recent Photos</title>
+    <title>Home</title>
 
     <div className="starter-template">
-          <h1>User's Recent Photos</h1>
-          <p className="lead">These are the most entertaining programming memes I could find.</p>
-          <p className= "lead">At the top of this page there is a list of other categories of photos that can be easily navigated through by clicking each category.</p>
+          <h1>Call of Duty Warzone Videos</h1>
+          <p className="lead">This is a list of the 5 most recent Call of Duty Warzone videos uploaded to YouTube. Click the button to view these videos.</p>
+          <p className= "lead">At the top of this page there is a list of other categories of videos that can be easily navigated through by clicking each category.</p>
     </div>
 
-    <div className="container">
-
-          <div className="row">
-              <div className="col-md-4">
-                  <div className="card mb-4 box-shadow">
-                  <Link to="/details"> <img className="card-img-top" src="spongeMeme.jpg" alt="Card image cap"></img></Link>
-                      <div className="card-body">
-                          <div className="d-flex justify-content-between align-items-center">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div className="col-md-4">
-                  <div className="card mb-4 box-shadow">
-                  <Link to="/details"><img className="card-img-top" src="frodoMeme.jpg" alt="Card image cap"></img></Link>
-                      <div className="card-body">
-                          <div className="d-flex justify-content-between align-items-center">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div className="col-md-4">
-                  <div className="card mb-4 box-shadow">
-                  <Link to="/details"><img className="card-img-top" src="thinkMeme.jpg" alt="Card image cap"></img></Link>
-                      <div className="card-body">
-                          <div className="d-flex justify-content-between align-items-center">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <div className="starter-template">
+          <Youtube/>
     </div>
   </main>
 );
