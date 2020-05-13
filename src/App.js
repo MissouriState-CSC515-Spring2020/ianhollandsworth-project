@@ -1,9 +1,10 @@
-import React from 'react';
+//import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import './App.css';
 import Nav from './Nav';
-import PizzaPage from './PizzaPage'
-import CatsPage from './CatsPage'
-import VideoGamesPage from './VideoGamesPage'
+//import PizzaPage from './PizzaPage'
+//import CatsPage from './CatsPage'
+//import VideoGamesPage from './VideoGamesPage'
 import Youtube from './Youtube';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,11 +17,15 @@ const result = 5;
 
 var finalURL = `https://www.googleapis.com/youtube/v3/search?key=${API}&q=${search}&part=snippet,id&maxResults=${result}`
 
-
+const PizzaPage = lazy(() => import('./PizzaPage'));
+const CatsPage = lazy(() => import('./CatsPage'));
+const VideoGamesPage = lazy(() => import('./VideoGamesPage'));
 
 function App() {
   return (
     <Router>
+
+      <Suspense fallback ={<div>Loading...</div>}>
      <div classNameName="App">
          <Nav />
          <Switch>
@@ -30,6 +35,8 @@ function App() {
            <Route path="/videogames" component={VideoGamesPage}/>
          </Switch>
       </div>
+      </Suspense>
+      
     </Router>
   );
 }
